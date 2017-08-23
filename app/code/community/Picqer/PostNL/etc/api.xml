@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config>
+    <api>
+        <resources>
+            <sales_order translate="title" module="sales">
+                <model>sales/order_api</model>
+                <title>Order API</title>
+                <acl>sales/order</acl>
+                <methods>
+                    <picqerPostNL translate="title" module="sales">
+                        <title>Retrieve TIG PostNL information</title>
+                        <acl>sales/order/info</acl>
+                    </picqerPostNL>
+                </methods>
+            </sales_order>
+        </resources>
+    </api>
+</config>

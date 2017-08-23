@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Picqer_PostNL>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Api/>
+                <TIG_PostNL/>
+            </depends>
+        </Picqer_PostNL>
+    </modules>
+</config>
