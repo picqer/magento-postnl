@@ -15,7 +15,7 @@ class Picqer_PostNL_Model_Sales_Order_Api extends Mage_Sales_Model_Order_Api
         $helper = Mage::helper('picqer_postnl');
 
         if (! $helper->isExtensionActive() || ! $helper->isTIGPostNlExtensionInstalled()) {
-            return [];
+            return array();
         }
 
         try {
@@ -29,13 +29,13 @@ class Picqer_PostNL_Model_Sales_Order_Api extends Mage_Sales_Model_Order_Api
                 $quote = Mage::getModel('sales/quote')->setStoreId($order->getStoreId())->load($order->getQuoteId());
                 $tigPostNlOrder = Mage::getModel('postnl_core/order')->loadByQuote($quote);
                 if (is_null($tigPostNlOrder->quoteId)) {
-                    return ['error' => 'No orderId and no quoteId found'];
+                    return array('error' => 'No orderId and no quoteId found');
                 }
             }
 
             return $this->formatApiResponse($tigPostNlOrder, $pakjeGemakAddress, $order);
         } catch (\Exception $e) {
-            return [];
+            return array();
         }
     }
 
@@ -141,7 +141,7 @@ class Picqer_PostNL_Model_Sales_Order_Api extends Mage_Sales_Model_Order_Api
         $storeTimezone = $this->getStoreTimeZone($tigPostNlOrder);
         $expectedDeliveryTimeEnd = $this->getDeliveryTimeEnd($tigPostNlOrder);
 
-        $result = [
+        $result = array(
             'confirmDate' => $this->toCorrectTimeZone($tigPostNlOrder->getConfirmDate(), $storeTimezone)->format('Y-m-d H:i:s'),
             'isActive' => $tigPostNlOrder->getIsActive(),
             'shipmentCosts' => $tigPostNlOrder->getShipmentCosts(),
@@ -157,7 +157,7 @@ class Picqer_PostNL_Model_Sales_Order_Api extends Mage_Sales_Model_Order_Api
             'expectedDeliveryTimeEnd' => $expectedDeliveryTimeEnd,
             'pakjeGemakAddress' => empty($pakjeGemakAddress) ? null : $this->_getAttributes($pakjeGemakAddress),
             'isBrievenbuspakje' => $this->useBuspakje($order, $tigPostNlOrder),
-        ];
+        );
 
         return $result;
     }
