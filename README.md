@@ -1,3 +1,3 @@
-# magento-extension
+# Magento 1 PostNL add-on for Picqer
 
-Magento Extensions for Picqer. Get them via Magento Connect: http://www.magentocommerce.com/magento-connect/catalogsearch/result/?q=picqer&pl=0
+This extension syncs PakjeGemak information of your orders to Picqer. Download from [the releases tab](https://github.com/picqer/magento-postnl/releases) and upload to your shop.
