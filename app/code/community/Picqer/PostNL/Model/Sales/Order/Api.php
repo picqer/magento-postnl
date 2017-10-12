@@ -155,7 +155,7 @@ class Picqer_PostNL_Model_Sales_Order_Api extends Mage_Sales_Model_Order_Api
             'options' => $tigPostNlOrder->getUnserializedOptions(),
             'expectedDeliveryTimeStart' => $this->toCorrectTimeZone($tigPostNlOrder->getExpectedDeliveryTimeStart(), $storeTimezone)->format('H:i'),
             'expectedDeliveryTimeEnd' => $expectedDeliveryTimeEnd,
-            'pakjeGemakAddress' => empty($pakjeGemakAddress) ? null : $this->_getAttributes($pakjeGemakAddress),
+            'pakjeGemakAddress' => empty($pakjeGemakAddress) ? null : $this->_getAttributes($pakjeGemakAddress, 'global'),
             'isBrievenbuspakje' => $this->useBuspakje($order, $tigPostNlOrder),
         );
 
