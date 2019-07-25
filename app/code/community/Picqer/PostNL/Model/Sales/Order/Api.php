@@ -147,6 +147,8 @@ class Picqer_PostNL_Model_Sales_Order_Api extends Mage_Sales_Model_Order_Api
             'shipmentCosts' => $tigPostNlOrder->getShipmentCosts(),
             'productCode' => $tigPostNlOrder->getProductCode(),
             'isPakjeGemak' => $tigPostNlOrder->getIsPakjeGemak(),
+            'pgLocationCode' => $tigPostNlOrder->getPgLocationCode(),
+            'pgRetailNetworkId' => $tigPostNlOrder->getPgRetailNetworkId(),
             'isCanceled' => $tigPostNlOrder->getIsCanceled(),
             'deliveryDate' => $this->toCorrectTimeZone($tigPostNlOrder->getDeliveryDate(), $storeTimezone)->format('Y-m-d H:i:s'),
             'type' => $tigPostNlOrder->getType(),
